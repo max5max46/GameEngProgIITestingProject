@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // Sam Robichaud 
 // NSCC Truro 2024
@@ -20,6 +21,15 @@ public class InputManager : MonoBehaviour
     public Vector2 movementInput;
     public float moveAmount;
 
+    //public InputAction playerControls;
+
+    public PlayerInputActions playerControls;
+    private InputAction move;
+    private InputAction look;
+    private InputAction jump;
+    private InputAction run;
+    private InputAction pause;
+
     [Header("Camera Inputs")]
     public float scrollInput; // Scroll input for camera zoom
     public Vector2 cameraInput; // Mouse input for the camera
@@ -37,21 +47,51 @@ public class InputManager : MonoBehaviour
     }
 
     private void HandleCameraInput()
-    {        
-            // Get mouse input for the camera
-            cameraInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+    {
+        cameraInput = look.ReadValue<Vector2>();
 
-            // Get scroll input for camera zoom
-            scrollInput = Input.GetAxis("Mouse ScrollWheel");
+        // Get mouse input for the camera
+        //cameraInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-            // Send inputs to CameraManager
-            cameraManager.zoomInput = scrollInput;
-            cameraManager.cameraInput = cameraInput;        
+        // Get scroll input for camera zoom
+        scrollInput = Input.GetAxis("Mouse ScrollWheel");
+
+        // Send inputs to CameraManager
+        cameraManager.zoomInput = scrollInput;
+        cameraManager.cameraInput = cameraInput;        
     }
+
+
+    private void OnEnable()
+    {
+        playerControls = new PlayerInputActions();
+
+        move = playerControls.Player.Move;
+        look = playerControls.Player.Look;
+        jump = playerControls.Player.Jump;
+        run = playerControls.Player.Run;
+        pause = playerControls.Player.Pause;
+        move.Enable();
+        look.Enable();
+        jump.Enable();
+        run.Enable();
+        pause.Enable();
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
+        look.Disable();
+        jump.Disable();
+        run.Disable();
+        pause.Disable();
+    }
+
 
     private void HandleMovementInput()
     {
-        movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        movementInput = move.ReadValue<Vector2>();
+        //movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         horizontalInput = movementInput.x;
         verticalInput = movementInput.y;
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
@@ -59,12 +99,12 @@ public class InputManager : MonoBehaviour
 
     private void HandlePauseKeyInput()
     {
-        isPauseKeyPressed = Input.GetKeyDown(KeyCode.Escape); // Detect the escape key press
+        isPauseKeyPressed = pause.WasPerformedThisFrame(); // Detect the escape key press
     }
 
     private void HandleSprintingInput()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && moveAmount > 0.5f)
+        if (run.IsPressed() && moveAmount > 0.5f)
         {
             playerLocomotionHandler.isSprinting = true;
         }
@@ -76,12 +116,13 @@ public class InputManager : MonoBehaviour
 
     private void HandleJumpInput()
     {
-        jumpInput = Input.GetKeyDown(KeyCode.Space); // Detect jump input (spacebar)
+        jumpInput = jump.WasPerformedThisFrame(); // Detect jump input (spacebar)
         if (jumpInput)
         {
             playerLocomotionHandler.HandleJump(); // Trigger jump in locomotion handler
         }
     }
+
 
 
 
