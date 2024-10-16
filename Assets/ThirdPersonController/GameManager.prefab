@@ -947,6 +947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6134277154389711811}
   - component: {fileID: 5697578372536420906}
+  - component: {fileID: 2954537040997414422}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -991,6 +992,37 @@ MonoBehaviour:
   scrollInput: 0
   cameraInput: {x: 0, y: 0}
   isPauseKeyPressed: 0
+--- !u!114 &2954537040997414422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625125363580622106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 5e51e282195519d418116d282fe3f0ca,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1979037321571253575
 GameObject:
   m_ObjectHideFlags: 0
@@ -3758,6 +3790,7 @@ GameObject:
   - component: {fileID: 1308513348906308259}
   - component: {fileID: 515732063566655833}
   - component: {fileID: 322026907196466210}
+  - component: {fileID: 3004884626024198572}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -3852,6 +3885,25 @@ CharacterController:
   m_SkinWidth: 0.01
   m_MinMoveDistance: 0.00001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3004884626024198572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7034935583075056663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c59ff8c30367346b54f7f606c224fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 7852501862026054370}
+  cubeLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  ground:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &7223833058263259775
 GameObject:
   m_ObjectHideFlags: 0
