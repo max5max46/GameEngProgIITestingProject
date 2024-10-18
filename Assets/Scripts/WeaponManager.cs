@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
@@ -7,6 +9,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private LayerMask cubeLayerMask;
     [SerializeField] private LayerMask ground;
+
 
     private void Awake()
     {
@@ -35,12 +38,13 @@ public class WeaponManager : MonoBehaviour
 
         foreach (RaycastHit hitSingle in hits)
         {
-            if (hitSingle.collider.GetComponent<Renderer>())
+            if (hitSingle.collider.TryGetComponent<Renderer>(out Renderer renderer))
             {
-                hitSingle.collider.GetComponent<Renderer>().material.color = Color.blue;
+                renderer.material.color = Color.blue;
                 Debug.Log("Name: " + hitSingle.collider.gameObject.name + " | Distance: " + hitSingle.distance);
             }
         }
+
 
         //if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, 20, cubeLayerMask.value))
         //{
