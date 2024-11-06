@@ -41,7 +41,6 @@ public class WeaponManager : MonoBehaviour
             if (hitSingle.collider.TryGetComponent<Renderer>(out Renderer renderer))
             {
                 renderer.material.color = Color.blue;
-                Debug.Log("Name: " + hitSingle.collider.gameObject.name + " | Distance: " + hitSingle.distance);
             }
         }
 

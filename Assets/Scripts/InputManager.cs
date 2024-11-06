@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     // Script References
     [SerializeField] private PlayerLocomotionHandler playerLocomotionHandler;
     [SerializeField] private CameraManager cameraManager; // Reference to CameraManager
+    private InteractionManager interactionManager;
 
 
     [Header("Movement Inputs")]
@@ -28,6 +29,7 @@ public class InputManager : MonoBehaviour
     private InputAction look;
     private InputAction jump;
     private InputAction run;
+    private InputAction interact;
     private InputAction pause;
 
     [Header("Camera Inputs")]
@@ -36,6 +38,10 @@ public class InputManager : MonoBehaviour
 
     public bool isPauseKeyPressed = false;
 
+    private void Awake()
+    {
+        interactionManager = FindAnyObjectByType<InteractionManager>();
+    }
 
     public void HandleAllInputs()
     {
@@ -44,6 +50,7 @@ public class InputManager : MonoBehaviour
         HandleJumpInput();
         HandleCameraInput();
         HandlePauseKeyInput();
+        HandleInteractionInput();
     }
 
     private void HandleCameraInput()
@@ -70,11 +77,13 @@ public class InputManager : MonoBehaviour
         look = playerControls.Player.Look;
         jump = playerControls.Player.Jump;
         run = playerControls.Player.Run;
+        interact = playerControls.Player.Interact;
         pause = playerControls.Player.Pause;
         move.Enable();
         look.Enable();
         jump.Enable();
         run.Enable();
+        interact.Enable();
         pause.Enable();
     }
 
@@ -84,6 +93,7 @@ public class InputManager : MonoBehaviour
         look.Disable();
         jump.Disable();
         run.Disable();
+        interact.Disable();
         pause.Disable();
     }
 
@@ -120,6 +130,14 @@ public class InputManager : MonoBehaviour
         if (jumpInput)
         {
             playerLocomotionHandler.HandleJump(); // Trigger jump in locomotion handler
+        }
+    }
+
+    private void HandleInteractionInput()
+    {
+        if (interact.IsPressed() && interactionManager.interactionPossible)
+        {
+            interactionManager.Interact();
         }
     }
 
