@@ -40,7 +40,7 @@ public class InteractionManager : MonoBehaviour
         {
             if (hit.transform.gameObject.CompareTag("interactable"))
             {
-                Debug.Log("I'm peeping the " + hit.transform.gameObject.name);
+                //Debug.Log("I'm peeping the " + hit.transform.gameObject.name);
                 target = hit.transform.gameObject;
                 targetInteractable = target.GetComponent<Interactable>();
             }
@@ -64,6 +64,7 @@ public class InteractionManager : MonoBehaviour
         {
             case Interactable.InteractionType.Door:
                 target.SetActive(false);
+                Debug.Log("Opened Door");
                 break;
 
             case Interactable.InteractionType.Button:
@@ -72,6 +73,7 @@ public class InteractionManager : MonoBehaviour
 
             case Interactable.InteractionType.Pickup:
                 target.SetActive(false);
+                Debug.Log("Picked Up Object");
                 break;
         }
     }
