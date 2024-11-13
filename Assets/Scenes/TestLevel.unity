@@ -1027,6 +1027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  interactableName: {fileID: 11400000, guid: 617f86f528b37634c804588200f33e2b, type: 2}
 --- !u!1 &84181711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,6 +1977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  interactableName: {fileID: 11400000, guid: 6d06237836d061140b2c54ddfaf66bb7, type: 2}
 --- !u!64 &275491558
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6961,6 +6963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  interactableName: {fileID: 11400000, guid: 617f86f528b37634c804588200f33e2b, type: 2}
 --- !u!1 &1218977019
 GameObject:
   m_ObjectHideFlags: 0
@@ -15346,6 +15349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  interactableName: {fileID: 11400000, guid: 617f86f528b37634c804588200f33e2b, type: 2}
 --- !u!1 &1583253799
 GameObject:
   m_ObjectHideFlags: 0
@@ -18004,6 +18008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  interactableName: {fileID: 11400000, guid: 76226c9ffa82afc4ab753002e3bc1e6d, type: 2}
 --- !u!135 &1814470161
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18712,6 +18717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  interactableName: {fileID: 11400000, guid: 617f86f528b37634c804588200f33e2b, type: 2}
 --- !u!1 &1909288072
 GameObject:
   m_ObjectHideFlags: 0
@@ -19903,6 +19909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  interactableName: {fileID: 11400000, guid: 617f86f528b37634c804588200f33e2b, type: 2}
 --- !u!1 &2114849349
 GameObject:
   m_ObjectHideFlags: 0

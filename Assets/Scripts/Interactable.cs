@@ -14,9 +14,11 @@ public class Interactable : MonoBehaviour
 
     public InteractionType type;
 
+    public InteractableName interactableName;
+
     public void Activate()
     {
-        Debug.Log(this.name + " was Touched");
+        Debug.Log(interactableName.objectName + " was Touched");
     }
 
 

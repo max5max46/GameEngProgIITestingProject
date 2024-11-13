@@ -1413,6 +1413,12 @@ PrefabInstance:
       propertyPath: gameplayMessage
       value: 
       objectReference: {fileID: 2384008851326326072}
+    - target: {fileID: 515732063566655833, guid: e778663d324e19a48ab9d91fcd9af8f9,
+        type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 274817b048a014c4f82b6e673809eec4,
+        type: 2}
     - target: {fileID: 616959208050697347, guid: e778663d324e19a48ab9d91fcd9af8f9,
         type: 3}
       propertyPath: m_IsActive

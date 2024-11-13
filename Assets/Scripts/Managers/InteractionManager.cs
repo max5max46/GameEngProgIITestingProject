@@ -63,17 +63,17 @@ public class InteractionManager : MonoBehaviour
         switch (targetInteractable.type)
         {
             case Interactable.InteractionType.Door:
+                targetInteractable.Activate();
                 target.SetActive(false);
-                Debug.Log("Opened Door");
                 break;
 
             case Interactable.InteractionType.Button:
-                Debug.Log("Button Pushed");
+                targetInteractable.Activate();
                 break;
 
             case Interactable.InteractionType.Pickup:
+                targetInteractable.Activate();
                 target.SetActive(false);
-                Debug.Log("Picked Up Object");
                 break;
         }
     }

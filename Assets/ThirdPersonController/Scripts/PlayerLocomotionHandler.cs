@@ -30,7 +30,6 @@ public class PlayerLocomotionHandler : MonoBehaviour
     private Vector3 velocity;
     private bool isJumping = false; // Track if player is currently jumping
 
-
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
