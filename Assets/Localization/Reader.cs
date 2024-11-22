@@ -42,7 +42,7 @@ public class Reader : MonoBehaviour
         isCurrentLangEng = true;
         buttonText.text = "English";
         languageData = JsonUtility.FromJson<LanguageData>(json.text);
-        SetLanguage(currentLanguage);
+        SetLanguage("en");
     }
 
     public void SwapLanguage()
